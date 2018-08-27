@@ -59,3 +59,12 @@ df2['trnName'] = df2['trnName'].apply(lambda x: x['official'])
 df2["playerName"] = df2["playerName"].apply(func)
 
 df2.drop(["date","courses", "champions", "links"], axis=1, inplace=True)
+
+
+## Tournament Hole Statistics (this is just 1 entry)
+url3 = "http://www.espn.com/golf/stats/hole/_/tournament/401025255"
+
+resp3 = pd.read_html(url3)[0]
+df3 = resp3[2:]
+df3.columns = resp3[1:2].values[0]
+df3_name = ret[0][0]
